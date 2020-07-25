@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+    <link rel='manifest' href='/manifest.json'>
+    <script type="module" src="index.js"></script>
+    <meta name="description" content="Swipe through videos from twitter">
+ 
+    <script
+      src="https://kit.fontawesome.com/aae682fcfb.js"
+      crossorigin="anonymous"
+    ></script>
+  
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TwikTwok</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="/swiper/swiper.min.css" />
+    <meta name="theme-color" content="#161823"/>
+
+    <link rel="apple-touch-icon" href="./img/icon-512x512.png">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159987383-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-159987383-6');
+</script>
+  </head>
+  <body>
+    
+    <div class="splash">
+<div class="splash-content">
+  <p>
+    <i class="fa fa-twitter" aria-hidden="true"></i>
+    <span class="top-span">x <span class="bold-span">TikTok </span>=</span>
+  </p>
+  <p class="logo">TwikTwok</p>
+  <i class="fa fa-twitter logo-bird" aria-hidden="true"></i>
+  <h3 class="splash-logline">Swipe through the best videos from twitter</h3>
+
+
+</div>
+     
+    </div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper" id="swiper-main">
+        <div class="swiper-slide" ><i class="fa fa-twitter logo-bird" aria-hidden="true"></i> Loading</div>
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+
+
+
+      </div>
+    </div>
+    </div>
+<script type="module">
+import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+
+  const el = document.createElement('pwa-update');
+  document.body.appendChild(el);
+  </script>
+  <!-- installl pwa -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall@latest/dist/pwa-install.min.js">
+</script>
+
+
+  <script src="/swiper/manUp.js"></script>
+
+    <script src="/swiper/swiper.min.js"></script>
+
+    <script>
+    sessionStorage.setItem("contentNumber", "0");
+    sessionStorage.setItem("isMuted", "true");</script>
+  </body>
+</html>
