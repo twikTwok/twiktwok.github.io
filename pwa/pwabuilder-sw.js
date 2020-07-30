@@ -7,16 +7,15 @@ importScripts(
 const CACHE = "pwabuilder-page";
 const staticCacheName = "site-static";
 const assets = [
-  "../vidData.js",
-  "../index.js",
   "../test2.html",
+  "../vidData.js",
   "../test.js",
+  "../index.js",
   "../index.html",
   "/",
   "../style.css",
   "../swiper/swiper.min.css",
   "../swiper/swiper.min.js",
-  "https://kit.fontawesome.com/aae682fcfb.js",
   "../swiper/manUp.js",
 ];
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";

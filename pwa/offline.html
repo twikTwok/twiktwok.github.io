@@ -2,15 +2,79 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../style.css" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OFFLINE</title>
+    <title>OFFLINE....</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+      body {
+        box-sizing: border-box;
+        /* display: flex;
+        flex-direction: column; */
+        /* align-items: center; */
+        font-family: sans-serif;
+        text-align: center;
+
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .logo {
+        font-size: 3em;
+        animation: animate 1.5s linear infinite;
+      }
+      .banner {
+        top: 10vh;
+        background-color: #7d88e3;
+        width: 100vw;
+        color: white;
+        padding: 16px;
+        font-size: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        background: #fe2c55;
+        padding: 3vh 5vw;
+        font-size: large;
+        margin-top: 10vh;
+        text-decoration: none;
+        border-radius: 5px;
+        color: white;
+      }
+
+      .btn:hover,
+      .btn:focus {
+        color: #fe2c55;
+        border: 2px solid #fe2c55;
+        background-color: white;
+      }
+      @keyframes animate {
+        0%,
+        100% {
+          text-shadow: -4.5px -4.5px 0 #0ff, 4.5px 4.5px 0 #f00;
+        }
+        25% {
+          color: #55acee;
+          text-shadow: 4.5px 4.5px 0 #0ff, -4.5px -4.5px 0 #f00;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="offline">
+      <p class="banner">No internet connection...</p>
       <p class="logo">Offline</p>
-      <h2>OFFLINE: Please connect to the internet</h2>
-      <a href="../index.html">Back to the homepage</a>
+
+      <p>
+        It seems you have lost internet connection...
+      </p>
+      <a href="../index.html" class="btn">Back to the homepage</a>
     </div>
   </body>
 </html>

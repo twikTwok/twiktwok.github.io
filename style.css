@@ -21,7 +21,7 @@ html {
   font-family: var(--sans-serif-font);
 }
 
-.logo {
+#logo {
   color: var(--white-color);
   font-family: var(--sans-serif-font);
   font-size: 3em;
@@ -116,14 +116,14 @@ body {
   opacity: 85%;
 }
 
-.avatar {
+#avatar {
   width: 4rem;
   height: 4rem;
 
   border-radius: 50%;
   border: 0.2rem solid var(--white-color);
 }
-#overlay i,
+#overlay svg,
 a {
   margin-bottom: 0px;
 
@@ -160,11 +160,11 @@ a:hover {
 #overlay-text p {
   font-size: var(--normal-font);
 }
-.description {
+#description {
   opacity: 85%;
 }
 
-.username {
+#username {
   font-weight: bold;
 }
 video {
@@ -174,11 +174,6 @@ video {
   min-height: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-}
-/* modal css */
-
-.twitter-tweet {
-  margin: 0 auto;
 }
 
 .mute-class {
@@ -230,9 +225,12 @@ video {
   line-height: 90vh;
   text-align: center;
 }
-.offline {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
 }

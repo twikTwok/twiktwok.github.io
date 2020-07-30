@@ -54,7 +54,7 @@ var mySwiper = new Swiper(".swiper-container", {
       let allSlides = document.querySelectorAll(".swiper-slide");
       allSlides.forEach((slide, index) => {
         slide.innerHTML = `<div class='swiper-slide' >
-        <video  height="100%" id='${contentIndex}' autoplay loop muted playsinline >
+        <video  height="100%" id='${contentIndex}'   loop  muted playsinline >
         
             <source src="${arrOfVideos[i].url}" type="video/mp4">
         
@@ -64,9 +64,9 @@ var mySwiper = new Swiper(".swiper-container", {
         
         <div id="overlay-text">
         
-            <p class="username">@${
+            <p id="username">@${
               arrOfVideos[i].screen_name
-            }</p><p class="description">${arrOfVideos[i].description}</p>
+            }</p><p id="description">${arrOfVideos[i].description}</p>
         </div>
         
         <div class="banner">
@@ -75,11 +75,10 @@ var mySwiper = new Swiper(".swiper-container", {
             ? `<p><span class="top-span">#TwikTwok</p></span>`
             : i % 9
             ? `  <p>
-             <i class="fa fa-twitter" aria-hidden="true"></i>
+            <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
              <span class="top-span">x TikTok = <span class="bold-span">TwikTwok</span></span>
            </p>`
-            : `<p><span class="top-span"> <i class="fa fa-product-hunt
-           " aria-hidden="true"></i> Vote on Product Hunt   </p></span>`
+            : `<p><span class="top-span">   <svg class="icon icon-product-hunt"><use xlink:href="#icon-product-hunt"></use></svg>`
         }
         </div>
         
@@ -87,25 +86,29 @@ var mySwiper = new Swiper(".swiper-container", {
    
           <div class="overlay-item">
           <a href="${arrOfVideos[i].userUrl}" target="_blank">
-        <img src="${arrOfVideos[i].avatar}" class = "avatar" alt="user"/>
+        <img src="${arrOfVideos[i].avatar}" id = "avatar" alt="user"/>
         </a>
         </div >
            <div class="overlay-item">
-            <a class="modal-trigger" href="#modal1" > <i class="fas fa-heart"></i></a> <p class ="xnumber">${
+            <a class="modal-trigger" href="#modal1" >  <svg class="icon icon-heart"><use xlink:href="#icon-heart"></use></svg></a> <p class ="xnumber">${
               arrOfVideos[i].favorite_count
             }</p>
            </div >
           <div class="overlay-item">
+       
           <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Ftwiktwok.github.io&text=TwikTwok%20-%20twitter%20meets%20tik%20tok.%20Swipe%20through%20the%20best%20videos%20on%20twitter&hashtags=twikTwok" target="_blank">
-              <i class="fas fa-share"></i></a>
+          <svg class="icon icon-mail-forward"><use xlink:href="#icon-mail-forward"></use></svg></i></a>
+             
               <p class ="xnumber">${arrOfVideos[i].retweet_count}</p>
              
               </div >
               <div class="overlay-item ">
-          <button  id="muteBtn" class="mute-btn mute-class ">
+          <button  id="muteBtn" class="mute-btn mute-class name="mute" ">
             
-                <i class="fa fa-volume-off"></i>
+          <svg class="icon icon-volume-off"><use xlink:href="#icon-volume-off"></use></svg>
            
+
+
           </button>
           <p class ="xnumber muted-text mute-class ">Sound</p>
             </div>
@@ -130,6 +133,7 @@ playCurrentVid();
 mySwiper.setGrabCursor("button");
 
 function playCurrentVid() {
+  console.log("playCurrentVid");
   let allVids = document.querySelectorAll("video");
   allVids.forEach((vid) => vid.pause());
   let currentSlide = mySwiper.slides[index];
@@ -148,12 +152,14 @@ function playCurrentVid() {
 function handleMuteClick() {
   currentVid.muted = !currentVid.muted;
   if (currentVid.muted) {
-    currentBtn.innerHTML = '<i class="fa fa-volume-off"></i>';
+    currentBtn.innerHTML =
+      '<svg class="icon icon-volume-off"><use xlink:href="#icon-volume-off"></use></svg>';
 
     currentBtn.classList.add("mute-class");
     currentMuteText.classList.add("mute-class");
   } else {
-    currentBtn.innerHTML = '<i class="fa fa-volume-up"></i>';
+    currentBtn.innerHTML =
+      '<svg class="icon icon-volume-up"><use xlink:href="#icon-volume-up"></use></svg>';
 
     currentBtn.classList.remove("mute-class");
     currentMuteText.classList.remove("mute-class");
