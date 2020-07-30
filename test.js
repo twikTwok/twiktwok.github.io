@@ -175,12 +175,12 @@ mySwiper.on("slideNextTransitionStart", () => {
   // mySwiper.removeSlide([0]);
   // mySwiper.appendSlide('<div class="swiper-slide">Slide "</div>');
 
-  // if (index == 29) {
-  //   sessionStorage.setItem("contentNumber", `${contentIndex}`);
-  //   sessionStorage.setItem("isMuted", `${muted}`);
-  //   // window.location.href = "/test2.html";
-  //   location.reload();
-  // }
+  if (index == 20) {
+    sessionStorage.setItem("contentNumber", `${contentIndex}`);
+    sessionStorage.setItem("isMuted", `${muted}`);
+    // window.location.href = "/test2.html";
+    location.reload();
+  }
 });
 // mySwiper.on("reachBeginning", (swiper) => {
 //   // mySwiper.prependSlide('<div class="swiper-slide">Slide "</div>');
