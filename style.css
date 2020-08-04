@@ -254,3 +254,11 @@ video {
   color: var(--red-color);
   border: 2px solid var(--red-color);
 }
+.upvote-link {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #cc4d29;
+}
+.upvote-icon {
+  color: #cc4d29;
+}
