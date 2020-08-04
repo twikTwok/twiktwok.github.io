@@ -15,7 +15,7 @@ var mySwiper = new Swiper(".swiper-container", {
         b = document.querySelectorAll(".swiper-slide");
       b.forEach((b) => {
         (b.innerHTML = `<div class='swiper-slide' >
-        <video  height="100%" id='${contentIndex}'   loop  muted playsinline >
+        <video  height="100%" id='${contentIndex}' autoplay  loop  muted playsinline >
         
             <source src="${arrOfVideos[a].url}" type="video/mp4">
         

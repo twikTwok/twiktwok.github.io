@@ -115,16 +115,17 @@ let firstVids = [
     userUrl: "https://twitter.com/mashable",
   },
   {
-    description: "happy ending story https://t.co/9KS0GgfLVr",
+    description:
+      "Movement is life. #parkour\nJoseph Marx \uD83D\uDCAA https://t.co/GYyXSwei6o",
     url:
-      "https://video.twimg.com/ext_tw_video/1282883385585614848/pu/vid/576x1024/atRCNQzJbkx5njuC.mp4?tag=10",
-    tweetURL: "https://twitter.com/Viral_GIFs/status/1282883439415267328",
-    screen_name: "Viral_GIFs",
-    retweet_count: 4,
-    favorite_count: 45,
+      "https://video.twimg.com/ext_tw_video/1171445482767282176/pu/vid/480x480/oYysUlCuFMCXj6HX.mp4?tag=10",
+    tweetURL: "https://twitter.com/parkourdotcom/status/1171445537305817089",
+    screen_name: "parkourdotcom",
+    retweet_count: 10,
+    favorite_count: 63,
     avatar:
-      "https://pbs.twimg.com/profile_images/1184509167035240449/NQdJQOad_normal.jpg",
-    userUrl: "https://twitter.com/Viral_GIFs",
+      "https://pbs.twimg.com/profile_images/1148993882618597376/EjMPjIQS_normal.jpg",
+    userUrl: "https://twitter.com/parkourdotcom",
   },
 ];
 export { firstVids };

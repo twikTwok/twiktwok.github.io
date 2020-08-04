@@ -29,7 +29,7 @@ const mySwiper = new Swiper(".swiper-container", {
       let allSlides = document.querySelectorAll(".swiper-slide");
       allSlides.forEach((slide, index) => {
         slide.innerHTML = `<div class='swiper-slide' >
-        <video  height="100%" id='${contentIndex}'   loop  muted playsinline >
+        <video  height="100%" id='${contentIndex}' autoplay  loop  muted playsinline >
         
             <source src="${arrOfVideos[i].url}" type="video/mp4">
         
