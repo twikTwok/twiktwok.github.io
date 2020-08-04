@@ -1,5 +1,3 @@
-// import { vidData } from "./vidData.js";
-// import { vidData } from "./vidData.min.js";
 import { firstVids } from "./firstVids.js";
 let arrOfVideos = firstVids;
 let index = 0;
@@ -12,40 +10,6 @@ let contentIndex = parseInt(sessionStorage.getItem("contentNumber"));
 let currentVid;
 let currentBtn;
 let currentMuteText;
-// function toggleMuted() {
-//   muted = !muted;
-
-//   changeMuteVisually();
-//   changeMuteSound();
-// }
-
-// function changeMuteVisually() {
-//   // let btns = document.querySelectorAll("button");
-//   // let muteText = document.querySelectorAll(".muted-text");
-
-//   if (muted) {
-//     // btns.forEach((btn) => {
-//     //   btn.classList.add("mute-class");
-//     //   btn.innerHTML = ' <i class="fa fa-volume-off"></i>';
-//     // });
-//     // muteText.forEach((mt) => mt.classList.add("mute-class"));
-//   } else {
-//     // console.log("remove", "muted", muted);
-//     // btns.forEach((btn) => {
-//     //   btn.classList.remove("mute-class");
-//     //   btn.innerHTML = '<i class="fa fa-volume-up"></i>';
-//     // });
-//     // muteText.forEach((mt) => mt.classList.remove("mute-class"));
-//   }
-// }
-
-// function changeMuteSound() {
-//   if (muted) {
-//     currentVid.muted = true;
-//   } else {
-//     currentVid.muted = false;
-//   }
-// }
 
 var mySwiper = new Swiper(".swiper-container", {
   on: {
@@ -83,7 +47,7 @@ var mySwiper = new Swiper(".swiper-container", {
         </div>
         
           <div id="overlay">
-   
+       
           <div class="overlay-item">
           <a href="${arrOfVideos[i].userUrl}" target="_blank">
         <img src="${arrOfVideos[i].avatar}" id = "avatar" alt="user"/>
@@ -102,6 +66,11 @@ var mySwiper = new Swiper(".swiper-container", {
               <p class ="xnumber">${arrOfVideos[i].retweet_count}</p>
              
               </div >
+
+              <div class="overlay-item">
+              <a href="/faq.html" target="_blank" id="faq">?</a>
+     
+              </div>
               <div class="overlay-item ">
           <button  id="muteBtn" class="mute-btn mute-class name="mute" ">
             
@@ -112,6 +81,7 @@ var mySwiper = new Swiper(".swiper-container", {
           </button>
           <p class ="xnumber muted-text mute-class ">Sound</p>
             </div>
+
           
         
         
@@ -133,19 +103,28 @@ playCurrentVid();
 mySwiper.setGrabCursor("button");
 
 function playCurrentVid() {
-  console.log("playCurrentVid");
   let allVids = document.querySelectorAll("video");
-  allVids.forEach((vid) => vid.pause());
+
   let currentSlide = mySwiper.slides[index];
   currentVid = currentSlide.querySelector("video");
-  // muted ? (currentVid.muted = true) : (currentVid.muted = false);
+  allVids.forEach((vid) => vid.pause());
 
   currentBtn = currentSlide.querySelector("button");
   currentMuteText = currentSlide.querySelector(".muted-text");
   currentBtn.addEventListener("click", handleMuteClick);
+  let playPromise = currentVid.play();
+  if (playPromise !== undefined) {
+    playPromise
+      .then((_) => {
+        // Automatic playback started!
+        // Show playing UI.
+      })
+      .catch((error) => {
+        // Auto-play was prevented
+        // Show paused UI.
+      });
+  }
 
-  currentVid.play();
-  //fav
   let currentHeart = currentSlide.querySelector(".modal-trigger");
 }
 
@@ -188,7 +167,7 @@ mySwiper.on("slidePrevTransitionStart", () => {
 });
 mySwiper.on("slideNextTransitionStart", () => {
   incrementIndexes(true);
-  console.log("index", index);
+
   if (index == 9) {
     sessionStorage.setItem("contentNumber", `${contentIndex}`);
     sessionStorage.setItem("isMuted", `${muted}`);

@@ -1,6 +1,6 @@
-import { vidData } from "./vidData.min.js";
-// import { vidData } from "./cutdown.js";
-let arrOfVideos = vidData;
+import { vids } from "./vids.min.js";
+
+let arrOfVideos = vids;
 let index = 0;
 let muteValFromStorage = sessionStorage.getItem("isMuted");
 
@@ -53,7 +53,7 @@ const mySwiper = new Swiper(".swiper-container", {
             <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
              <span class="top-span">x TikTok = <span class="bold-span">TwikTwok</span></span>
            </p>`
-            : `<p><span class="top-span">   <svg class="icon icon-product-hunt"><use xlink:href="#icon-product-hunt"></use></svg>`
+            : `<p><span class="top-span">   <svg class="icon icon-product-hunt"><use xlink:href="#icon-product-hunt"></use></svg> Upvote on Product Hunt</p>`
         }
         </div>
         
@@ -77,6 +77,10 @@ const mySwiper = new Swiper(".swiper-container", {
               <p class ="xnumber">${arrOfVideos[i].retweet_count}</p>
              
               </div >
+              <div class="overlay-item">
+              <a href="/faq.html" target="_blank" id="faq">?</a>
+     
+              </div>
               <div class="overlay-item ">
           <button  id="muteBtn" class="mute-btn mute-class name="mute" ">
             
@@ -120,21 +124,21 @@ function playCurrentVid() {
   currentBtn = currentSlide.querySelector("button");
   currentMuteText = currentSlide.querySelector(".muted-text");
   currentBtn.addEventListener("click", handleMuteClick);
-  currentVid.play();
+
   let playPromise = currentVid.play();
   if (playPromise !== undefined) {
     playPromise
-      .then(function () {
-        console.log("playing..", currentSlide.querySelector());
+      .then((_) => {
+        // Automatic playback started!
+        // Show playing UI.
+        console.log("success");
       })
-      .catch(function (error) {
-        console.log("error", error);
-        // Automatic playback failed.
-        // Show a UI element to let the user manually start playback.
+      .catch((error) => {
+        console.log("error playing: ", error);
+        // Auto-play was prevented
+        // Show paused UI.
       });
   }
-  //fav
-  // let currentHeart = currentSlide.querySelector(".modal-trigger");
 }
 
 function handleMuteClick() {
@@ -172,25 +176,10 @@ mySwiper.on("slidePrevTransitionStart", () => {
 mySwiper.on("slideNextTransitionStart", () => {
   incrementIndexes(true);
 
-  // mySwiper.removeSlide([0]);
-  // mySwiper.appendSlide('<div class="swiper-slide">Slide "</div>');
-
   if (index == 20) {
     sessionStorage.setItem("contentNumber", `${contentIndex}`);
     sessionStorage.setItem("isMuted", `${muted}`);
-    // window.location.href = "/test2.html";
+
     location.reload();
   }
 });
-// mySwiper.on("reachBeginning", (swiper) => {
-//   // mySwiper.prependSlide('<div class="swiper-slide">Slide "</div>');
-//   // mySwiper.prependSlide('<div class="swiper-slide">Slide "</div>');
-//   // mySwiper.removeSlide(mySwiper.slided.length - 1);
-//   // mySwiper.removeSlide(mySwiper.slided.length - 2);
-// });
-// mySwiper.on("reachEnd", (swiper) => {
-//   mySwiper.removeSlide([0]);
-//   mySwiper.removeSlide([0]);
-//   mySwiper.appendSlide('<div class="swiper-slide">YO "</div>');
-//   mySwiper.appendSlide('<div class="swiper-slide">Slide "</div>');
-// });

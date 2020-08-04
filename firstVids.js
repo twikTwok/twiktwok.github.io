@@ -76,29 +76,30 @@ let firstVids = [
     userUrl: "https://twitter.com/techinsider",
   },
   {
-    description: "wait for it...\nVideo: @FunnymanPage https://t.co/OI8eZiUQ4h",
+    description:
+      "The egg is one of nature's perfect design. Egg won't break in crusher.\n\n#engineering https://t.co/UNVh2rq87k",
     url:
-      "https://video.twimg.com/ext_tw_video/1283957513449205761/pu/vid/720x720/5CbKrD6K4njKyTxe.mp4?tag=10",
-    tweetURL: "https://twitter.com/Viral_GIFs/status/1283957571179573249",
-    screen_name: "Viral_GIFs",
-    retweet_count: 70,
-    favorite_count: 396,
+      "https://video.twimg.com/ext_tw_video/1280725312125284352/pu/vid/480x480/Gh3clNy1UgoXepQ0.mp4?tag=10",
+    tweetURL: "https://twitter.com/ersuniverse/status/1283034764824293376",
+    screen_name: "ersuniverse",
+    retweet_count: 43,
+    favorite_count: 168,
     avatar:
-      "https://pbs.twimg.com/profile_images/1184509167035240449/NQdJQOad_normal.jpg",
-    userUrl: "https://twitter.com/Viral_GIFs",
+      "https://pbs.twimg.com/profile_images/1074230860944162818/7f4ydjgA_normal.jpg",
+    userUrl: "https://twitter.com/ersuniverse",
   },
   {
     description:
-      "RT @realchoppedliva: when people have an unpopular opinion https://t.co/PkZeBCceEd",
+      "Thoughts about this concept?\n\n#engineering https://t.co/ZsCf9SE2nQ",
     url:
-      "https://video.twimg.com/ext_tw_video/1173699621908111360/pu/vid/608x1080/HJZvdJBglpVK_nuf.mp4?tag=10",
-    tweetURL: "https://twitter.com/TwitterVideo/status/1174374503390093313",
-    screen_name: "TwitterVideo",
-    retweet_count: 7352,
-    favorite_count: 0,
+      "https://video.twimg.com/ext_tw_video/1283989937797439488/pu/vid/640x800/mnlP8psmnqlIV91J.mp4?tag=10",
+    tweetURL: "https://twitter.com/ersuniverse/status/1286247184195756034",
+    screen_name: "ersuniverse",
+    retweet_count: 27,
+    favorite_count: 132,
     avatar:
-      "https://pbs.twimg.com/profile_images/1104106979788763138/lFxnLjkv_normal.png",
-    userUrl: "https://twitter.com/TwitterVideo",
+      "https://pbs.twimg.com/profile_images/1074230860944162818/7f4ydjgA_normal.jpg",
+    userUrl: "https://twitter.com/ersuniverse",
   },
   {
     description:

@@ -91,7 +91,7 @@ body {
   align-items: center;
   color: var(--white-color);
   text-align: center;
-  font-size: 2rem;
+  font-size: var(--big-font);
   width: 10%;
   height: 80%;
   padding: 10px 0;
@@ -233,4 +233,24 @@ video {
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor;
+}
+#faq {
+  display: block;
+  height: var(--big-font);
+  width: var(--big-font);
+  line-height: var(--big-font);
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50%;
+  border: 2px solid var(--grey-color);
+  color: var(--grey-color);
+  opacity: 80;
+
+  text-decoration: none;
+  opacity: 85%;
+}
+
+#faq:hover {
+  color: var(--red-color);
+  border: 2px solid var(--red-color);
 }
