@@ -53,7 +53,7 @@ const mySwiper = new Swiper(".swiper-container", {
             <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
              <span class="top-span">x TikTok = <span class="bold-span">TwikTwok</span></span>
            </p>`
-            : `<p><span class="top-span">   <svg class="icon icon-product-hunt"><use xlink:href="#icon-product-hunt"></use></svg> Upvote on Product Hunt</p>`
+            : `<p><span class="top-span">   <svg class="icon icon-product-hunt upvote-icon"><use xlink:href="#icon-product-hunt"></use></svg> <a href="https://www.producthunt.com/posts/twiktwok-swipe-through-twitter-vids" target="_blank" class="upvote-link">Upvote on Product Hunt</a></p>`
         }
         </div>
         

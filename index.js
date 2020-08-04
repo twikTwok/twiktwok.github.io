@@ -1,26 +1,23 @@
 import { firstVids } from "./firstVids.js";
-let arrOfVideos = firstVids;
-let index = 0;
-let muteValFromStorage = sessionStorage.getItem("isMuted");
-
-let muted;
-muteValFromStorage == "true" ? (muted = true) : (muted = false);
-
-let contentIndex = parseInt(sessionStorage.getItem("contentNumber"));
-let currentVid;
-let currentBtn;
-let currentMuteText;
-
+let muted,
+  arrOfVideos = firstVids,
+  index = 0,
+  muteValFromStorage = sessionStorage.getItem("isMuted");
+muted = !("true" != muteValFromStorage);
+let currentVid,
+  currentBtn,
+  currentMuteText,
+  contentIndex = parseInt(sessionStorage.getItem("contentNumber"));
 var mySwiper = new Swiper(".swiper-container", {
   on: {
     init: function () {
-      let i = contentIndex;
-      let allSlides = document.querySelectorAll(".swiper-slide");
-      allSlides.forEach((slide, index) => {
-        slide.innerHTML = `<div class='swiper-slide' >
+      let a = contentIndex,
+        b = document.querySelectorAll(".swiper-slide");
+      b.forEach((b) => {
+        (b.innerHTML = `<div class='swiper-slide' >
         <video  height="100%" id='${contentIndex}'   loop  muted playsinline >
         
-            <source src="${arrOfVideos[i].url}" type="video/mp4">
+            <source src="${arrOfVideos[a].url}" type="video/mp4">
         
           Your browser does not support the video tag.
           </video>
@@ -29,15 +26,15 @@ var mySwiper = new Swiper(".swiper-container", {
         <div id="overlay-text">
         
             <p id="username">@${
-              arrOfVideos[i].screen_name
-            }</p><p id="description">${arrOfVideos[i].description}</p>
+              arrOfVideos[a].screen_name
+            }</p><p id="description">${arrOfVideos[a].description}</p>
         </div>
         
         <div class="banner">
         ${
-          i % 7 === 0
+          0 == a % 7
             ? `<p><span class="top-span">#TwikTwok</p></span>`
-            : i % 9
+            : a % 9
             ? `  <p>
             <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
              <span class="top-span">x TikTok = <span class="bold-span">TwikTwok</span></span>
@@ -49,13 +46,13 @@ var mySwiper = new Swiper(".swiper-container", {
           <div id="overlay">
        
           <div class="overlay-item">
-          <a href="${arrOfVideos[i].userUrl}" target="_blank">
-        <img src="${arrOfVideos[i].avatar}" id = "avatar" alt="user"/>
+          <a href="${arrOfVideos[a].userUrl}" target="_blank">
+        <img src="${arrOfVideos[a].avatar}" id = "avatar" alt="user"/>
         </a>
         </div >
            <div class="overlay-item">
             <a class="modal-trigger" href="#modal1" >  <svg class="icon icon-heart"><use xlink:href="#icon-heart"></use></svg></a> <p class ="xnumber">${
-              arrOfVideos[i].favorite_count
+              arrOfVideos[a].favorite_count
             }</p>
            </div >
           <div class="overlay-item">
@@ -63,7 +60,7 @@ var mySwiper = new Swiper(".swiper-container", {
           <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Ftwiktwok.github.io&text=TwikTwok%20-%20twitter%20meets%20tik%20tok.%20Swipe%20through%20the%20best%20videos%20on%20twitter&hashtags=twikTwok" target="_blank">
           <svg class="icon icon-mail-forward"><use xlink:href="#icon-mail-forward"></use></svg></i></a>
              
-              <p class ="xnumber">${arrOfVideos[i].retweet_count}</p>
+              <p class ="xnumber">${arrOfVideos[a].retweet_count}</p>
              
               </div >
 
@@ -89,105 +86,63 @@ var mySwiper = new Swiper(".swiper-container", {
         
         </div>
   
-        `;
-
-        i++;
+        `),
+          a++;
       });
     },
   },
   direction: "vertical",
 });
-
-playCurrentVid();
-// changeMuteVisually();
-mySwiper.setGrabCursor("button");
-
+playCurrentVid(), mySwiper.setGrabCursor("button");
 function playCurrentVid() {
-  let allVids = document.querySelectorAll("video");
-
-  let currentSlide = mySwiper.slides[index];
-  currentVid = currentSlide.querySelector("video");
-  allVids.forEach((vid) => vid.pause());
-
-  currentBtn = currentSlide.querySelector("button");
-  currentMuteText = currentSlide.querySelector(".muted-text");
-  currentBtn.addEventListener("click", handleMuteClick);
-  let playPromise = currentVid.play();
-  if (playPromise !== undefined) {
-    playPromise
-      .then((_) => {
-        // Automatic playback started!
-        // Show playing UI.
-      })
-      .catch((error) => {
-        // Auto-play was prevented
-        // Show paused UI.
-      });
-  }
-
-  let currentHeart = currentSlide.querySelector(".modal-trigger");
+  let a = document.querySelectorAll("video"),
+    b = mySwiper.slides[index];
+  (currentVid = b.querySelector("video")),
+    a.forEach((a) => a.pause()),
+    (currentBtn = b.querySelector("button")),
+    (currentMuteText = b.querySelector(".muted-text")),
+    currentBtn.addEventListener("click", handleMuteClick);
+  let c = currentVid.play();
+  c !== void 0 && c.then(() => {}).catch(() => {});
+  b.querySelector(".modal-trigger");
 }
-
 function handleMuteClick() {
-  currentVid.muted = !currentVid.muted;
-  if (currentVid.muted) {
-    currentBtn.innerHTML =
-      '<svg class="icon icon-volume-off"><use xlink:href="#icon-volume-off"></use></svg>';
-
-    currentBtn.classList.add("mute-class");
-    currentMuteText.classList.add("mute-class");
-  } else {
-    currentBtn.innerHTML =
-      '<svg class="icon icon-volume-up"><use xlink:href="#icon-volume-up"></use></svg>';
-
-    currentBtn.classList.remove("mute-class");
-    currentMuteText.classList.remove("mute-class");
-  }
+  (currentVid.muted = !currentVid.muted),
+    currentVid.muted
+      ? ((currentBtn.innerHTML =
+          '<svg class="icon icon-volume-off"><use xlink:href="#icon-volume-off"></use></svg>'),
+        currentBtn.classList.add("mute-class"),
+        currentMuteText.classList.add("mute-class"))
+      : ((currentBtn.innerHTML =
+          '<svg class="icon icon-volume-up"><use xlink:href="#icon-volume-up"></use></svg>'),
+        currentBtn.classList.remove("mute-class"),
+        currentMuteText.classList.remove("mute-class"));
 }
-
-function handleAllMuteClick() {
-  // toggleMuted();
-  //all mute un mute
+function handleAllMuteClick() {}
+function incrementIndexes(a) {
+  a
+    ? (contentIndex++, index++, playCurrentVid())
+    : (contentIndex--, index--, playCurrentVid());
 }
-
-function incrementIndexes(plus) {
-  if (plus) {
-    contentIndex++;
-    index++;
-    playCurrentVid();
-  } else {
-    contentIndex--;
-    index--;
-    playCurrentVid();
-  }
-}
-
 mySwiper.on("slidePrevTransitionStart", () => {
-  incrementIndexes(false);
-});
-mySwiper.on("slideNextTransitionStart", () => {
-  incrementIndexes(true);
-
-  if (index == 9) {
-    sessionStorage.setItem("contentNumber", `${contentIndex}`);
-    sessionStorage.setItem("isMuted", `${muted}`);
-    window.location.href = "/test2.html";
-  }
-});
-
-//splash
+  incrementIndexes(!1);
+}),
+  mySwiper.on("slideNextTransitionStart", () => {
+    incrementIndexes(!0),
+      9 == index &&
+        (sessionStorage.setItem("contentNumber", `${contentIndex}`),
+        sessionStorage.setItem("isMuted", `${muted}`),
+        (window.location.href = "/test2.html"));
+  });
 var currentLocation = window.location;
-
 if (
-  currentLocation.pathname == "/" ||
-  currentLocation.pathname == "/index.html"
+  "/" == currentLocation.pathname ||
+  "/index.html" == currentLocation.pathname
 ) {
-  const splash = document.querySelector(".splash");
-  document.addEventListener("DOMContentLoaded", (e) => {
+  const a = document.querySelector(".splash");
+  document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
-      splash.classList.add("display-none");
+      a.classList.add("display-none");
     }, 1500);
   });
-} else {
-  console.log("no splash screen");
-}
+} else console.log("no splash screen");
