@@ -20,6 +20,14 @@ let currentBtn;
 let currentMuteText;
 
 const mySwiper = new Swiper(".swiper-container", {
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+    pageUpDown: true,
+  },
+  mousewheel: {
+    invert: true,
+  },
   on: {
     observer: true,
     observeParents: true,

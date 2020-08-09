@@ -9,13 +9,21 @@ let currentVid,
   currentMuteText,
   contentIndex = parseInt(sessionStorage.getItem("contentNumber"));
 var mySwiper = new Swiper(".swiper-container", {
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+    pageUpDown: true,
+  },
+  mousewheel: {
+    invert: true,
+  },
   on: {
     init: function () {
       let a = contentIndex,
         b = document.querySelectorAll(".swiper-slide");
       b.forEach((b) => {
         (b.innerHTML = `<div class='swiper-slide' >
-        <video  height="100%" id='${contentIndex}' autoplay  loop  muted playsinline >
+        <video  height="100%" id='${contentIndex}' autoplay loop muted playsinline >
         
             <source src="${arrOfVideos[a].url}" type="video/mp4">
         
@@ -103,6 +111,7 @@ function playCurrentVid() {
     (currentMuteText = b.querySelector(".muted-text")),
     currentBtn.addEventListener("click", handleMuteClick);
   let c = currentVid.play();
+
   c !== void 0 && c.then(() => {}).catch(() => {});
   b.querySelector(".modal-trigger");
 }
